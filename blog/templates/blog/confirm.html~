@@ -11,23 +11,15 @@
     <body>
       <div class="page-header">
 	<h1><a href="/">Kundan's Blog</a></h1>
-	{{ user }}
-      {% if user.is_authenticated %}
-      <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-	<a href="{% url 'django.contrib.auth.views.logout' %}" >Logout</a>
-	{% else %}
-	<a href="{% url 'django.contrib.auth.views.login' %}" >Login</a>
-	<a href="{% url 'blog.views.register' %}" >register</a>
-	{% endif %}
-	
-	
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
-            </div>
+                                                                              
+		<h1>Congratulations</h1>
+		</h3>Your Email Address is Confirmed Successfully,You Can Login Now </h3>
+			<a href="{% url 'django.contrib.auth.views.login' %}" >Login</a>
+   	     </div>
         </div>
     </div>
 </body>

@@ -75,12 +75,12 @@ def register(request):
             user.set_password(form.cleaned_data['password'])
             user.is_active=False
             user.save()
-            fname=form.cleaned_data['first_name']
+	    fname = form.cleaned_data['first_name']
             username=form.cleaned_data['username']
             email=form.cleaned_data['email']
             email_subject="Account confirmation"
             activation_key=str(uuid.uuid4())
-            email_body="Dear %s,\n Thanks for signing up.\n To activate your account\n, click this link within 24 haurs \nhttp://kundansable.pythonanywhere.com/accounts/confirm/%s" % (fname,activation_key)
+            email_body="Dear %s,\n Thanks for signing up.\n To activate your account\n, click this link within 24 haurs http://127.0.0.1:8000/accounts/confirm/%s" % (fname,activation_key)
             key_expires=timezone.now() + datetime.timedelta(1)
             user=AuthUser.objects.get(username=username)
             new_profile=UserActivationProfile(user=user, activation_key=activation_key, key_expires=key_expires)

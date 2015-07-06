@@ -11,24 +11,20 @@
     <body>
       <div class="page-header">
 	<h1><a href="/">Kundan's Blog</a></h1>
-	{{ user }}
-      {% if user.is_authenticated %}
-      <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-	<a href="{% url 'django.contrib.auth.views.logout' %}" >Logout</a>
-	{% else %}
+	{{ user }}	
 	<a href="{% url 'django.contrib.auth.views.login' %}" >Login</a>
-	<a href="{% url 'blog.views.register' %}" >register</a>
-	{% endif %}
-	
-	
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
-            </div>
-        </div>
-    </div>
-</body>
+    	</div>
+  	<div class="content container">
+        	<div class="row">
+            		<div class="col-md-8">
+				<form method="POST" class="post-form">{% csrf_token %}
+  					<h1>Register</h1>
+  					{{form.as_p}}
+  					<button type="submit" class="save btn btn-defaults">Register</button>
+				</form>
+        		</div>
+        	</div>
+    	</div>
+
+     </body>
 </html>
