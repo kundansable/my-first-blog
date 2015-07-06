@@ -11,27 +11,22 @@
     <body>
       <div class="page-header">
 	{{ user }}
-      {% if user.is_authenticated %}
-      <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-	<a href="{% url "django.contrib.auth.views.logout" %}" >Logout</a>
-	{% else %}
-	<a href="{% url "django.contrib.auth.views.login" %}" >Login</a>
-	{% endif %}
-	
-	<h1><a href="/">Kundan's Blog</a></h1>
+	<a href="{% url 'blog.views.register' %}" >Register</a>
+	<h1><a href="/">Kundan's Blog hello</a></h1>
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
+		<h2>Login</h2>
 		<div class="log_in">
 		<form method="POST">{% csrf_token %}
-  			<h1>Login</h1>
-  			{{form.as_p}}
-  			<button type="submit" class="login btn btn-defaults">Login</button>
+  			{{ form.as_p }}
+  			<button type="submit" class="save btn btn-defaults">Login</button>
 		</form>
-		</div>
 	 </div>
         </div>
     </div>
 </body>
 </html>
+
+    
